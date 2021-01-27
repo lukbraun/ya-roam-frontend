@@ -19,6 +19,7 @@ export default {
   },
   methods: {
     getFiles() {
+      console.log("getFiles");
       return this.$store.dispatch("getAllFiles");
     }
   },

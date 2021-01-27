@@ -53,6 +53,8 @@ export default {
         const fileName = file.name;
         reader.addEventListener("load", event => {
           const text = event.target.result;
+          console.log(text);
+          console.log(fileName);
           this.send(fileName, text);
           // filename, username + text POST
         });
@@ -63,7 +65,7 @@ export default {
       });
     },
     send(fileName, text) {
-      axios.post("http://51.124.133.3/files", {
+      axios.post("http://20.73.130.168:8080/files", {
         fileName: fileName,
         text: text,
         userName: this.userName
