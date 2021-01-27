@@ -20,18 +20,19 @@ export default new Vuex.Store({
         return {
           fileName: element.fileName,
           userName: element.userName,
-          title: element.title.reduce((acc, element) => acc + " | " + element),
-          tags: element.tags.reduce((acc, element) => acc + " | " + element)
+          title: element.title.reduce((acc, element) => acc + element + ", ", "").slice(0, -2),
+          tags: element.tags.reduce((acc, element) => acc + element + ", ", "").slice(0, -2)
         }
       })
     },
     getFileByName: (state) => (filename) => {
-      return state.find(element => element.fileName === filename)
+      return state.files.find(element => element.fileName === filename)
     }
   },
   actions: {
     async getAllFiles(context) {
-      const { data } = await axios.get('http://20.67.127.49:8080/files');
+      const { data } = await axios.get('http://51.124.133.3/files');
+      console.log("Got all")
       context.commit("setData", data);
     }
   },

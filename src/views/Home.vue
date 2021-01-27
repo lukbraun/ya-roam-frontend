@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <DocumentTable :items="files" />
-    <img alt="Vue logo" src="../assets/logo.png" />
   </div>
 </template>
 
@@ -15,7 +14,7 @@ export default {
   },
   computed: {
     files() {
-      return this.$store.state.files;
+      return this.$store.getters.getFilesForTable;
     }
   },
   methods: {
