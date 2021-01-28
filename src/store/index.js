@@ -31,7 +31,7 @@ export default new Vuex.Store({
   },
   actions: {
     async getAllFiles(context) {
-      const { data } = await axios.get('https://20.73.130.168:8080/files')
+      const { data } = await axios.get('http://20.73.130.168:8080/files')
       console.log("Got all" + data)
       context.commit("setData", data);
     }
